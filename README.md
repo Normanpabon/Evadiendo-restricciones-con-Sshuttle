@@ -1,4 +1,6 @@
 # Evadiendo restricciones con Sshuttle
+
+![Funcionamiento Sshuttle](https://raw.githubusercontent.com/Normanpabon/Evadiendo-restricciones-con-Sshuttle/main/Docs/Sshuttle%20implementacion.png)
  
 ## Motivacion
 
