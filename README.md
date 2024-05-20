@@ -26,8 +26,22 @@ TCP, el protoclo UDP hacia dominios con restricciones, seguiria siendo bloqueado
 
 - Ubuntu 20.x > o cualquier distribucion basada en debian.
 - sshuttle
+- conexiones por ssh (puerto 22 o personalizado)
 
 ### Instalacion de Shuttle
+
+Para agilizar el proceso de configuracion, este repositorio cuenta con un script "SshuttleServer.sh"
+se recomienda hacer uso de este para instalacion y gestion de usuarios.
+
+Descargamos el script y asignamos permisos de ejecucion
+
+- sudo chmod +x SshuttleServer.sh
+
+Ejecutamos el script como sudo
+
+- sudo ./SshuttleServer.sh
+
+### Instalacion manual
 
 Instalamos el shuttle con el gestor de paquetes de linux, la configuracion de este
 es nula, pues mediante ssh establecemos la conexion inicial.
@@ -38,7 +52,8 @@ es nula, pues mediante ssh establecemos la conexion inicial.
 
 - Python3.6+
 - pip
-- OS: preferiblemente una distro basada en Debian
+- OS: Linux o Macos
+- Usuario creado en el servidor con acceso por ssh
 
 ### Instalacion en el cliente
 
