@@ -1,7 +1,7 @@
 # Evadiendo restricciones con Sshuttle
 
 ![Funcionamiento Sshuttle](https://raw.githubusercontent.com/Normanpabon/Evadiendo-restricciones-con-Sshuttle/main/Docs/Sshuttle%20implementacion.png)
- 
+
 ## Motivacion
 
 Hoy en día, se considera una práctica normal, los bloqueos realizados a recursos de internet por parte de
@@ -12,6 +12,10 @@ bloquear paquetes de ciertos protocolos, como es el caso del BitTorrent. Sin emb
 consistan en una serie de reglas automatizadas por compañías, que bloquean recursos necesarios tanto para el
 aprendizaje, así como la libertad de expresión y acceso a la información, caso que es común en China con su gran
 firewall que busca limitar el acceso de información a la población civil.
+
+## Demo
+
+![Demo funcional ](https://raw.githubusercontent.com/Normanpabon/Evadiendo-restricciones-con-Sshuttle/main/Docs/pruebaCorta.gif)
 
 ## Limitaciones
 
