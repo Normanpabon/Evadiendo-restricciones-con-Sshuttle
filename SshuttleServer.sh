@@ -1,5 +1,6 @@
 #!/bin/bash
-echo "Bienvenido al asistente de configuración para sshuttle."
+echo "Bienvenido al asistente de configuración para sshuttle." 
+echo -e
 
 # Verificar si se está ejecutando como sudo
 if [ "$EUID" -ne 0 ]; then
@@ -14,11 +15,12 @@ while true; do
     echo "3. Ver usuarios creados"
     echo "4. Eliminar un usuario"
     echo "5. Salir"
-
+    echo -e
     read -p "Opción: " option
 
     case $option in
         1)
+            echo -e "---------------------------------"
             echo "Realizando apt update..."
             sudo apt update -y 
             sudo apt install sshuttle -y
@@ -29,11 +31,16 @@ while true; do
             echo "sshuttle instalado correctamente."
             ;;
         2)
+            echo -e "---------------------------------"
             read -p "Ingrese el nombre de usuario: " username
-            #read -p "Ingrese la contraseña: " password
 
             #Crear usuario
             sudo useradd -m -d /home/$username -s /bin/bash $username
+
+            #Pedir contraseña al usuario
+            echo "Digite la contraseña para el usuario $username:"
+            
+            sudo passwd $username
             
             #Crear directorio .ssh
             sudo mkdir /home/$username/.ssh
@@ -43,6 +50,7 @@ while true; do
 
             #Agregar usuario a grupo sshuttle
             sudo usermod -aG sshuttle $username
+
 
             # Generar la llave RSA para acceder por SSH
             ssh-keygen -t rsa -b 4096 -C "$username" -f "/home/$username/.ssh/id_rsa" -N ""
@@ -57,12 +65,15 @@ while true; do
             ;;
         
         3)
+            echo -e "---------------------------------"
             echo "Usuarios creados sshuttle:"
             echo -e "---------------------------------"
-            sudo getent group sshuttle | cut -d: -f4
+            sudo getent group sshuttle | cut -d: -f4 | tr ',' '\n'
+            
             ;;
         
         4)
+            echo -e "---------------------------------"
             read -p "Digite el nombre de usuario a eliminar: " username
             sudo userdel -r $username
             echo "Usuario $username eliminado correctamente."
@@ -78,5 +89,6 @@ while true; do
     esac
 
     echo -e "---------------------------------"
+    echo -e -e
 
 done
